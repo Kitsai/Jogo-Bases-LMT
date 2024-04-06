@@ -1,1 +1,0 @@
-/home/kitsai/coding/rust/jogo_bases/target/debug/jogo_bases: /home/kitsai/coding/rust/jogo_bases/src/converter/mod.rs /home/kitsai/coding/rust/jogo_bases/src/main.rs /home/kitsai/coding/rust/jogo_bases/src/timer/mod.rs
