@@ -124,4 +124,5 @@ fn main() {
     println!("Você fez {0} pontos", points);
     println!("Demorou {0} segundos", timer.get_time().as_secs());
     println!("Obrigado por jogar!");
+    io::stdin().read_line(&mut String::new()).expect("Erro ao ler a linha");
 }
