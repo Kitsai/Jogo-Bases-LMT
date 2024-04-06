@@ -1,1 +1,0 @@
-C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\target\debug\jogo_bases.exe: C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\converter\mod.rs C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\main.rs C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\timer\mod.rs
