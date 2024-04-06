@@ -1,7 +1,7 @@
 mod converter;
 mod timer;
 
-use std::{convert, default, io::{self, Write}};
+use std::io::{self, Write};
 
 use rand::prelude::*;
 use converter::*;
@@ -25,42 +25,60 @@ fn question() -> bool {
             print!("O número é {num}: ");
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            converter::val_from_binary(&ans) == num
+            match val_from_binary(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         },
         1 => {
             println!("Converta de decimal para hexadecimal!");
             print!("O número é {num}: ");
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            converter::val_from_hex(&ans) == num
+            match val_from_hex(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         },
         2 => {
             println!("Converta de binário para decimal!");
             print!("O número é {0}: ", convert_to_binary(num));
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            val_from_decimal(&ans) == num
+            match val_from_decimal(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         },
         3 => {
             println!("Converta de binário para hexadecimal!");
             print!("O número é {0}: ", convert_to_binary(num));
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            val_from_hex(&ans) == num
+            match val_from_hex(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         },
         4 => {
             println!("Converta de hexadecimal para decimal!");
             print!("O número é {0}: ", convert_to_hex(num));
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            val_from_decimal(&ans) == num
+            match val_from_decimal(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         },
         5 => {
             println!("Converta de hexadecimal para binário!");
             print!("O número é {0}: ", convert_to_hex(num));
             io::stdout().flush().unwrap();
             io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-            val_from_binary(&ans) == num
+            match val_from_binary(&ans) {
+                Ok(val) => val == num,
+                _ => false
+            }
         }
         _ => {false}
     };

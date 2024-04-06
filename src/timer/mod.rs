@@ -30,7 +30,7 @@ impl Timer {
             self._started = false;
         }
     }
-
+    #[allow(dead_code)]
     pub fn reset(&mut self) {
         self._accumulator = Duration::new(0, 0);
         self._started = false;

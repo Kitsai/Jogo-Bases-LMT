@@ -1,1 +1,1 @@
-/home/kitsai/coding/rust/jogo_bases/target/debug/jogo_bases: /home/kitsai/coding/rust/jogo_bases/src/converter/mod.rs /home/kitsai/coding/rust/jogo_bases/src/main.rs /home/kitsai/coding/rust/jogo_bases/src/timer/mod.rs
+C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\target\debug\jogo_bases.exe: C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\converter\mod.rs C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\main.rs C:\Users\luck3\Coding\Rust\Jogo-Bases-LMT\src\timer\mod.rs
