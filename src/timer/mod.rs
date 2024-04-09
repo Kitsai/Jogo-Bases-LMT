@@ -40,7 +40,7 @@ impl Timer {
         &self._accumulator
     }
 
-    pub fn get_time_intant(&self) -> Duration {
+    pub fn get_time_instant(&self) -> Duration {
         self._instant.elapsed()
     }
 }
