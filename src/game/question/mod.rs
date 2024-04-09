@@ -1,3 +1,5 @@
+mod bucket;
+
 use std::io::{self, Write};
 
 use rand::prelude::*;
