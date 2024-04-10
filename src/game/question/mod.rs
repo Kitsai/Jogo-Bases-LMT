@@ -1,14 +1,13 @@
-mod bucket;
+pub mod bucket;
 
 use std::io::{self, Write};
 
 use rand::prelude::*;
 use crate::converter::*;
 
-pub fn question() -> bool {
+pub fn question(op: u8) -> bool {
     let mut rng = rand::thread_rng();
     let num:u8 = rng.gen_range(0..=255);
-    let op: u8 = rng.gen_range(0..=5);
     let mut ans = String::new();
 
     let result = match op{

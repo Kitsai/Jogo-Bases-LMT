@@ -1,8 +1,8 @@
 use crate::timer::Timer;
 use std::io;
-use super::question::question;
+use super::question::{question, bucket::Bucket};
 
-pub fn infinite(timer: &mut Timer) {
+pub fn infinite(timer: &mut Timer, bucket: &mut Bucket) {
     let mut points: usize = 0;
     let mut questions: usize = 0;
 
@@ -13,7 +13,7 @@ pub fn infinite(timer: &mut Timer) {
         questions += 1;
 
         timer.start();
-        let result = question();
+        let result = question(bucket.get_next());
         timer.stop();
         println!("Você respondeu em {0} segundos", timer.get_time_instant().as_secs());
         if result {

@@ -1,11 +1,12 @@
-use crate::{game::question::question, timer::Timer};
+use crate::timer::Timer;
+use super::question::{question, bucket::Bucket};
 use std::io;
 
-pub fn n_questions(n: usize, timer: &mut Timer) {
+pub fn n_questions(n: usize, timer: &mut Timer, bucket: &mut Bucket) {
     let mut points: usize = 0;
     for _ in 0..n {
         timer.start();
-        let result = question();
+        let result = question(bucket.get_next());
         timer.stop();
 
         if result {
@@ -21,12 +22,12 @@ pub fn n_questions(n: usize, timer: &mut Timer) {
     println!("E levou em média {0} segundos por questão", timer.get_time().as_secs() / n as u64);
 }
 
-pub fn set_questions(timer: &mut Timer) {
+pub fn set_questions(timer: &mut Timer, bucket: &mut Bucket) {
     println!("Quantas perguntas você quer responder?");
     let mut ans = String::new();
     io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
     let n = ans.trim().parse::<usize>().expect("Erro ao converter para número");
     println!("Aperte enter para iniciar o jogo");
     io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
-    n_questions(n, timer);
+    n_questions(n, timer, bucket);
 }
