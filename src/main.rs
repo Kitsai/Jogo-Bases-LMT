@@ -19,7 +19,7 @@ fn print_intro() {
 
 fn main() {
     let mut timer = Timer::new();
-    let mut bucket = Bucket::new(BucketTypes::Single);
+    let mut bucket = Bucket::new(BucketTypes::Multiple(2));
 
     print_intro();
 
@@ -46,5 +46,39 @@ fn main() {
 }
 
 fn change_bucket(bucket: &mut Bucket) {
+    println!("\nEscolha o tipo das perguntas:");
+    println!("1 - Padrão (Todas aparecem igualmente)");
+    println!("2 - Customizado (Escolha as perguntas)");
 
+    let mut ans = String::new();
+    io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
+
+    match ans.trim().parse() {
+        Ok(1) => {
+            println!("\nQuantas de cada pergunta deve ter? (Quanto menor o número, mais vezes aparece)");
+            let mut ans = String::new();
+            io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
+            match ans.trim().parse() {
+                Ok(n) => {
+                    bucket.change_type(BucketTypes::Multiple(n));
+                },
+                _ => println!("Valor inválido: {0}", ans)
+            }
+        },
+        Ok(2) => {
+            println!("Perguntas disponíveis:");
+            println!("0 - Decimal para binário");
+            println!("1 - Decimal para hexadecimal");
+            println!("2 - Binário para decimal");
+            println!("3 - Binário para hexadecimal");
+            println!("4 - Hexadecimal para decimal");
+            println!("5 - Hexadecimal para binário");
+            println!("\nDigite as perguntas separadas por espaço:");
+            let mut ans = String::new();
+            io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
+            let questions: Vec<u8> = ans.trim().split(" ").map(|x| x.parse().unwrap()).collect();
+            bucket.change_type(BucketTypes::Custom(questions));
+        },
+        _ => println!("Opção inválida: {0}", ans)
+    }
 }

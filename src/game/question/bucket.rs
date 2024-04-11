@@ -1,9 +1,8 @@
 use core::fmt;
 
-use rand::{seq::SliceRandom, Rng};
+use rand::seq::SliceRandom;
 
 pub enum BucketTypes {
-    Single,
     Multiple(usize),
     Custom(Vec<u8>)
 }
@@ -11,7 +10,6 @@ pub enum BucketTypes {
 impl fmt::Display for BucketTypes {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            BucketTypes::Single => write!(f, "Unico pacote padrão"),
             BucketTypes::Multiple(size) => write!(f, "{} pacotes padrao", size),
             BucketTypes::Custom(custom) => write!(f, "Pacotes custom: {:?}", custom)
         }
@@ -39,9 +37,6 @@ impl Bucket {
 
     fn get_bucket_of_type(bucket_type: &BucketTypes) -> Vec<u8> {
         match bucket_type {
-            BucketTypes::Single => {
-                vec![0,1,2,3,4,5]
-            },
             BucketTypes::Multiple(size) => {
                 let mut ret = Vec::new();
                 for _ in 0..*size {
