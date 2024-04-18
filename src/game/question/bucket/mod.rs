@@ -2,6 +2,9 @@ use core::fmt;
 
 use rand::seq::SliceRandom;
 
+#[cfg(test)]
+mod tests;
+
 pub enum BucketTypes {
     Multiple(usize),
     Custom(Vec<u8>)
@@ -60,7 +63,7 @@ impl Bucket {
         }
     }
 
-    fn reset(&mut self) {
+    pub fn reset(&mut self) {
         self._current_bucket = self._base_bucket.clone();
         let mut rng = rand::thread_rng();
         self._current_bucket.shuffle(&mut rng);

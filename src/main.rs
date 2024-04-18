@@ -2,7 +2,7 @@ mod converter;
 mod timer;
 mod game;
 
-use std::io;
+use std::{io, thread::sleep, time::Duration};
 use timer::Timer;
 use game::{
     infinite::infinite,
@@ -34,6 +34,8 @@ fn main() {
         let mut ans = String::new();
         io::stdin().read_line(&mut ans).expect("Erro ao ler a linha");
 
+        bucket.reset();
+
         match ans.trim().parse() {
             Ok(1) => infinite(&mut timer,&mut bucket),
             Ok(2) => set_questions(&mut timer, &mut bucket),
@@ -43,6 +45,8 @@ fn main() {
             _ => println!("Opção inválida: {0}", ans)
         }
     }
+    println!("Até mais!");
+    sleep(Duration::from_secs(1))
 }
 
 fn change_bucket(bucket: &mut Bucket) {
